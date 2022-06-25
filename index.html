@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="assets/js/lib/html2canvas.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <script src="path/to/dom-to-image.min.js" ></script>
+    <script type="text/javascript">
+    import domtoimage from 'dom-to-image';
+
+function shot(){
+  var elmt=document.body;
+  domtoimage.toPng(elmt).then(function(dataUrl){
+var img=new Image();
+
+img.src-dataUrl;
+
+document.body.appendChild(img);
+
+})
+
+.catch(function(error){ console.error('error found', error);
+
+});
+
+}
+      
+    function downloadimage() {
+			var container = document.body; 
+			html2canvas(container).then(function(canvas) {
+                var link = document.createElement("a");
+                document.body.appendChild(link);
+                link.download = "html_image.png";
+                link.href = canvas.toDataURL("image/png");
+                link.target = '_blank';
+                link.click();
+            });
+      }
+
+  </script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Template Generator</title>
+  </head>
+  <body>
+    <!-- here goes html code  -->
+
+    <div class="card mx-5 mt-3" id="cv-form">
+      <div class="card-header">
+        <h1 class="text-center my-2">Template Generator</h1>
+        <p class="text-center">----------</p>
+
+      </div>
+      <div class="card-body" style="margin-top: 2px;">
+        <div class="container" >
+          <img src="https://vaya.in/news/wp-content/uploads/2019/05/Healthy-Diet-Plan-1280x720.jpg" alt="" class="container" style="margin-bottom: 20px;">
+          <div class="row">
+            <div class="col-md-6">
+              
+              <input type="file" id="image-input" accept="image/jpeg, image/png, image/jpg" >
+
+<div id="display-image" class="container" ></div>
+<script>
+  const image_input = document.querySelector("#image-input");
+
+image_input.addEventListener("change", function() {
+  const reader = new FileReader();
+  reader.addEventListener("load", () => {
+    const uploaded_image = reader.result;
+    document.querySelector("#display-image").style.backgroundImage = `url(${uploaded_image})`;
+  });
+  reader.readAsDataURL(this.files[0]);
+});
+</script>
+            </div>
+            <div class="col-md-6">
+              <!-- first col -->
+              <h3>Personal Information</h3>
+
+              <div class="form-group">
+                <label for="nameField">Name</label>
+                <input
+                  type="text"
+                  id="nameField"
+                  placeholder="Enter here"
+                  class="form-control"
+                />
+              </div>
+
+              <div class="form-group mt-2">
+                <label for="contactField">Contact</label>
+                <input
+                  type="text"
+                  id="contactField"
+                  placeholder="Enter here"
+                  class="form-control"
+                />
+              </div>
+
+              <div class="form-group mt-2">
+                <label for="addressField">Address</label>
+                <textarea
+                  id="addressField"
+                  placeholder="Enter here"
+                  class="form-control"
+                  rows="3"
+                ></textarea>
+              </div>
+    
+              <div class="form-group mt-2">
+                <label for="addressField">About</label>
+                <textarea
+                  id="addressField"
+                  placeholder="Enter here"
+                  class="form-control"
+                  rows="3"
+                ></textarea>
+              </div>
+              
+            </div>
+            
+          </div>
+
+          <div class="container text-center mt-3">
+            <button onclick="pc()" class="btn btn-primary btn-lg">
+              Generate 
+            </button>
+
+          </div>
+        </div>
+      </div class="card-body">
+    </div>
+    <!-- cv template -->
+
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
